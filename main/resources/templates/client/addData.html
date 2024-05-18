@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add sensor</title>
+</head>
+<body>
+
+<form th:method="POST" th:object="${sensorDTO}">
+    <label for="name">Enter sensor name: </label>
+    <input type="text" th:field="*{name}" id="name">
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Sensor name errors</div>
+    <br>
+    <button type="submit" formaction="/client/addSensor">Add sensor</button>
+    <button type="submit" formaction="/client/addMeasurements">Add measurements</button>
+    <!---<input th:action="@{/client/addSensor}" type="submit" value="Add sensor">
+    <br>
+    <input th:action="@{/client/addMeasurements}" type="submit" value="Add measurements">--->
+</form>
+
+</body>
+</html>
